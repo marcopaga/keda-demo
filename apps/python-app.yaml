@@ -17,8 +17,8 @@ spec:
         image: ghcr.io/marcopaga/feeding-the-ci-process-single-project:a245d6f
         resources:
           limits:
-            memory: "128Mi"
-            cpu: "500m"
+            memory: "32Mi"
+            cpu: "10m"
         env:
         - name: REDIS_SERVICE_HOST
           value: "redis-master"
@@ -42,8 +42,8 @@ spec:
         image: ghcr.io/marcopaga/feeding-the-ci-process-worker:5b2bdfd
         resources:
           limits:
-            memory: "128Mi"
-            cpu: "500m"
+            memory: "32Mi"
+            cpu: "10m"
         env:
         - name: REDIS_SERVICE_HOST
           value: "redis-master"
