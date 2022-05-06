@@ -28,7 +28,7 @@ kubectl cluster-info
  ```sh
    GITHUB_TOKEN=<token> GITHUB_USER=<username> flux bootstrap github \
    --owner=<username-of-the-repo-owner> \
-   --repository=tekton-demo \
+   --repository=keda-demo \
    --private=false \
    --personal=true \
    --branch=main \

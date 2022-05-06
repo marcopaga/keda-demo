@@ -2,7 +2,7 @@ apiVersion: keda.sh/v1alpha1
 kind: TriggerAuthentication
 metadata:
   name: keda-trigger-auth-redis-secret
-  namespace: default
+  namespace: apps
 spec:
   secretTargetRef:
   - parameter: password
@@ -13,7 +13,7 @@ apiVersion: keda.sh/v1alpha1
 kind: ScaledObject
 metadata:
   name: redis-scaledobject
-  namespace: default
+  namespace: apps
 spec:
   scaleTargetRef:
     name: worker
