@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: creator
+spec:
+  selector:
+    matchLabels:
+      app: creator
+  template:
+    metadata:
+      labels:
+        app: creator
+    spec:
+      containers:
+      - name: creator
+        image: ghcr.io/marcopaga/feeding-the-ci-process-single-project:a245d6f
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        env:
+        - name: REDIS_SERVICE_HOST
+          value: "redis-master"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: worker
+spec:
+  selector:
+    matchLabels:
+      app: worker
+  template:
+    metadata:
+      labels:
+        app: worker
+    spec:
+      containers:
+      - name: worker
+        image: ghcr.io/marcopaga/feeding-the-ci-process-worker:5b2bdfd
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        env:
+        - name: REDIS_SERVICE_HOST
+          value: "redis-master"
